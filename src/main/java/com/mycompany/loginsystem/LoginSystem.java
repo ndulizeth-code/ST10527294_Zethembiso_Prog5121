@@ -32,12 +32,12 @@ public class LoginSystem {
     // Register user and validate username and password
     public static String registerUser(String username,String password) {
         if (!checkUserName(username)) {
-            return "Username is not correct , Must have _ and max 5 chars";
+            return "Username is not correctly formatted;please ensure that your username contains an underscore and is no more than five characters in length";
         }
         if (!checkPasswordComplexity(password)) {
-            return "Password is not correct , Must have 8+ chars, capital letter,number,and a special character";
+            return "Password is not correctly formatted;please ensure that the password contains at least eight chgaracters,a capital letter,a number,and a special character";
         }
-        return "Username and password successfully captured. User registered!";
+        return "username and password correct";
     }
      // login User by checking stored Username and password
     public static boolean loginUser(String username , String password, String storedUsername, String storedPassword) {
@@ -45,20 +45,20 @@ public class LoginSystem {
     }
     
     //Show login message
-    public static String returnloginStatus(boolean status) {
+    public static String returnLoginStatus(boolean status) {
         if (status) {
-            return "Login successful! Welcome back!";
+            return "Welcome<user first name>,<user last name>it is great to see you again";
         }
         else {
-        return "Username or Password incorrect, please try again";
+        return "Username or password incorrect,please try again.";
     }
 }   
         //--------- Main Method ---------
         
         public static void main(String[] args) {
             
-            String storedUsername = "";
-            String storedPassword = "";
+            String storedUsername ="";
+            String storedPassword ="";
             String cellPhone;
             
             //---------Registration---------
@@ -67,17 +67,23 @@ public class LoginSystem {
             while (true) {
                 System.out.print("Enter Username (must contain '_' and max 5 chars): ");
                 username = input.nextLine();
-                if (checkUserName(username)) break;
-                System.out.println("Invalid username. Example: user_");
+                if (checkUserName(username)) {
+                    System.out.println("Username successfully captured");
+                    break;
+                } else {
+                System.out.println("Username is not corrctly formatted,please ensure that your username contains an underscore and no more that five characters in length");
             }
             
             //Loop until valid password
             String password;
             while (true) {
-                System.out.print("Enter Password (8+ chars, 1 capital, 1 number, 1 special char): ");
+                System.out.print("Enter Password (must have 8+ chars, 1 capital, 1 number, 1 special char): ");
                 password = input.nextLine();
-                if (checkPasswordComplexity(password)) break;
-                System.out.println("Invalid password. Example: Password1!");
+                if (checkPasswordComplexity(password)) {
+                System.out.println("Password successfully captured.");
+                break;
+            } else {
+                System.out.println("Password is not correctly formatted,please ensure that the password contains at at least eight characters,a capital letter, a number and a special character");
             }
             
             //Register user
@@ -90,12 +96,11 @@ public class LoginSystem {
             while (true) {
                 System.out.print("Enter CellPhone (+27 and followed by 9 digits): ");
                 cellPhone = input.nextLine();
-                String cellphone = null;
-                if (checkCellPhoneNumber(cellphone)) {
+                if (checkCellPhoneNumber(cellPhone)) {
                     System.out.println("Cell Phone Number successfully added");
                     break;
-                }
-                System.out.println("Invalid number. Must start with +27 followed by 9 digits. Example: +27234567890");
+                } else {
+                System.out.println("Cell phone number incorectly formatted or does not contain international code");
             }    
                 //--------- Lgin Section ---------
                 System.out.println("\nlogin");
@@ -111,11 +116,15 @@ public class LoginSystem {
                     System.out.print("Enter Password: ");
                     loginPass = input.nextLine();
                     
-                    status = LoginSystem.loginUser(loginUser, loginPass, storedUsername, storedPassword);
-                    
-                    System.out.println(LoginSystem.returnloginStatus(status));
+                 status = LoginSystem.loginUser(loginUser, loginPass , storedUsername , storedPassword);
+                  
+                 System.out.println(LoginSystem.returnLoginStatus(status));
                   
                     if (status) break; // End loop on successful login
                 }
         }
+        }
+            }
+        }
 }
+            

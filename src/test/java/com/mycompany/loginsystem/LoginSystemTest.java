@@ -42,12 +42,12 @@ public class LoginSystemTest {
     @Test
     public void testCheckUserName() {
         System.out.println("checkUserName");
-        String username = "";
-        boolean expResult = false;
+        String username = "kyl_1";
+        boolean expResult = true;
         boolean result = LoginSystem.checkUserName(username);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -56,12 +56,12 @@ public class LoginSystemTest {
     @Test
     public void testCheckPasswordComplexity() {
         System.out.println("checkPasswordComplexity");
-        String password = "";
-        boolean expResult = false;
+        String password = "Ch&&sec@ke99!";
+        boolean expResult =true;
         boolean result = LoginSystem.checkPasswordComplexity(password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -70,12 +70,12 @@ public class LoginSystemTest {
     @Test
     public void testCheckCellPhoneNumber() {
         System.out.println("checkCellPhoneNumber");
-        String number = "";
-        boolean expResult = false;
+        String number = "+27838968976";
+        boolean expResult = true;
         boolean result = LoginSystem.checkCellPhoneNumber(number);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -90,7 +90,7 @@ public class LoginSystemTest {
         String result = LoginSystem.registerUser(username, password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -103,11 +103,11 @@ public class LoginSystemTest {
         String password = "";
         String storedUsername = "";
         String storedPassword = "";
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = LoginSystem.loginUser(username, password, storedUsername, storedPassword);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -118,10 +118,10 @@ public class LoginSystemTest {
         System.out.println("returnloginStatus");
         boolean status = false;
         String expResult = "";
-        String result = LoginSystem.returnloginStatus(status);
+        String result = LoginSystem.returnLoginStatus(status);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -133,7 +133,7 @@ public class LoginSystemTest {
         String[] args = null;
         LoginSystem.main(args);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
